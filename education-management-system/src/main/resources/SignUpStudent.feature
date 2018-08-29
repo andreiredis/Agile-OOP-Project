@@ -17,26 +17,11 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Feature1 M1
-  I want to use this template for my feature file
+Feature: SignUp Student
 
   @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
+  Scenario Outline: Succesful sign up
+    Given Student
+    When SignUp
     Then I validate the outcomes
-    And check more outcomes
-
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     8 | Fail    |
+    And create
