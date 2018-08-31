@@ -1,5 +1,10 @@
-
-public class Member {
+/**
+ * The abstract class is a template for all Person entities that are relevant in an University. 
+ * It characterizes people with the details relevant for the university.
+ * @author andreiredis
+ *
+ */
+public abstract class Member {
 	protected String name;
 	protected String surname;
 	protected String day;
@@ -8,7 +13,14 @@ public class Member {
 	protected String email;
 	
 	public Member() {}
-
+	/**
+	 * Constructor that allows for quick edit of fields.
+	 * @param name
+	 * @param surname
+	 * @param day
+	 * @param month
+	 * @param year
+	 */
 	public Member(String name, String surname, String day, String month, String year) {
 		this.name = name;
 		this.surname = surname;

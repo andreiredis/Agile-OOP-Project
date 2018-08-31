@@ -1,4 +1,8 @@
-
+/**
+ * Is a type of member that has an administrative role in the managing of Course.
+ * @author andreiredis
+ *
+ */
 public class Teacher extends Member {
 	private String level;
 	private int serial;
@@ -6,7 +10,15 @@ public class Teacher extends Member {
 	public Teacher() {
 		super();
 	}
-
+	/**
+	 * Constructor using superclass Member constructor and additional level field.
+	 * @param name
+	 * @param surname
+	 * @param level
+	 * @param day
+	 * @param month
+	 * @param year
+	 */
 	public Teacher(String name, String surname, String level, String day, String month, String year) {
 		super(name, surname, day, month, year);
 		this.level = level;
