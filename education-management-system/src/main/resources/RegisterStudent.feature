@@ -24,7 +24,7 @@ Feature: Register students in University
   Given student with name "Ion" and surname "Popescu" and day "22" and month "02" and year "1990" 
   And student false registered in the university system
   When student registration 
-  And student has student id 160000
+  Then student has student id 160000
   And student has email "s160000@student.dtu.dk"
   
     

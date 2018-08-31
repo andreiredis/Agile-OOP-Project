@@ -25,5 +25,5 @@ Feature: Register teachers in University
   And teacher has level "Associate"
   And teacher false registered in the university system
   When teacher registration
-  And teacher has serial number 1
+  Then teacher has serial number 1
   And teacher has email "anip@dtu.dk"

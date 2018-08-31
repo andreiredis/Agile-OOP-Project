@@ -19,6 +19,7 @@ public class USystem {
 	private int lastTeacherSerial = 1;
 	private Map<Integer, Student> studentMap;
 	private Map<Integer, Teacher> teacherMap;
+	private Map<String, Course> courseMap;
 	/**
 	 * Constructor for University system. Initializes the data 
 	 * <ui>
@@ -26,6 +27,7 @@ public class USystem {
 	public USystem() {
 		studentMap = new HashMap<Integer, Student>();
 		teacherMap = new HashMap<Integer, Teacher>();
+		courseMap = new HashMap<String, Course>();
 	}
 	/**
 	 * Check whether Student belongs to university system.
@@ -44,7 +46,7 @@ public class USystem {
 		return teacherMap.containsValue(teacher);
 	}
 	/**
-	 * Adds a student in the student list, other actions associated with registration are:
+	 * Adds a student in the student Map, other actions associated with registration are:
 	 * <ul><li> The creation of an incremental student id
 	 * <li> The creation of an email based on student id
 	 * @param s1 a student
@@ -65,7 +67,7 @@ public class USystem {
 		studentMap.put(lastStudentId, s1);
 	}
 	/**
-	 * Adds a teacher in the teacher list, other actions associated with registration are:
+	 * Adds a teacher in the teacher Map, other actions associated with registration are:
 	 * <ul><li> The creation of an incremental serial number
 	 * <li> The creation of an email based on first two letters of name and surname. 
 	 * </ul>
@@ -85,6 +87,22 @@ public class USystem {
 		 */
 		lastTeacherSerial++;
 		teacherMap.put(lastTeacherSerial, t1);
+	}
+	/**
+	 * Adds a course in the course Map, with key courseID.
+	 * @param c1 a course
+	 */
+	public void register(Course c1) {
+		courseMap.put(c1.courseId, c1);
+	}
+	public Map<String, Course> getCourseMap() {
+		return courseMap;
+	}
+	public Map<Integer, Student> getStudentMap() {
+		return studentMap;
+	}
+	public Map<Integer, Teacher> getTeacherMap() {
+		return teacherMap;
 	}
 
 	

@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -7,8 +10,9 @@ import cucumber.api.java.en.When;
 
 public class StepDefinitions {
 	// Initialized blank object with constructor to complete test coverage
-	Student s1 = new Student("Lorem", "Ipsum", "1", "1", "2000");
-	Teacher t1 = new Teacher("Lorem", "Ipsum", "A level", "1", "1", "2000");
+	Student s1 = new Student("Name", "Surname", "1", "1", "2000");
+	Teacher t1 = new Teacher("Name", "Surname", "A level", "1", "1", "2000");
+	Course c1 = new Course("Title", "courseId", "BSc/Msc/Phd", 5);
 	USystem system = new USystem();
 	
 	/////////// RegisterStudent.feature //////////
@@ -67,4 +71,52 @@ public class StepDefinitions {
 	public void teacher_has_email(String email) throws Throwable {
 		assertEquals(t1.getEmail(), email);
 	}
+	
+	////////// RegisterCourse.feature //////////
+	
+	@Given("^a student with student id (\\d+)$")
+	public void a_student_with_student_id(int studId)  {
+	    system.getStudentMap().get(studId);
+	}
+
+	@Given("^a teacher with theacher id (\\d+)$")
+	public void a_teacher_with_theacher_id(int teachSerial) throws Throwable {
+	    system.getTeacherMap().get(teachSerial);
+	}
+
+	@Given("^A course with title \"([^\"]*)\" and course id \"([^\"]*)\" and type \"([^\"]*)\" and ECTS (\\d+)$")
+	public void a_course_with_title_and_course_id_and_type_and_ECTS(String title, String courseId, String type, int ECTS) throws Throwable {
+		c1.setTitle(title);
+	    c1.setCourseId(courseId);
+	    c1.setType(type);
+	    c1.setECTS(ECTS);
+	}
+	
+	@Given("^a responsible teacher with id (\\d+) and a teaching assistant with id (\\d+) and prerequisite course with id \"([^\"]*)\"$")
+	public void a_responsible_teacher_with_id_and_a_teaching_assistant_with_id_and_prerequisite_course_with_id(int teacherSerial, int studentId, String courseId) {
+		c1.setRespTeacher(system.getTeacherMap().get(teacherSerial));
+		c1.setTA(system.getStudentMap().get(studentId));
+	    c1.setPrerequisite(system.getCourseMap().get(courseId));
+	}
+	
+	@When("^course registration$")
+	public void course_registration() throws Throwable {
+	    system.register(c1);
+	}
+	
+	@Then("^course has title \"([^\"]*)\" and course id \"([^\"]*)\" and type \"([^\"]*)\" and ECTS (\\d+)$")
+	public void course_has_title_and_course_id_and_type_and_ECTS(String title, String courseId, String type, int ECTS) {
+		assertEquals(c1.getTitle(), title);
+		assertEquals(c1.getCourseId(),courseId);
+		assertEquals(c1.getType(),type);
+		assertEquals(c1.getECTS(),ECTS);
+	}
+	
+	@Then("^has a responsible teacher with id (\\d+) and a teaching assistant with id (\\d+) and prerequisite course with id \"([^\"]*)\"$")
+	public void has_a_responsible_teacher_with_id_and_a_teaching_assistant_with_id_and_prerequisite_course_with_id(int teacherSerial, int studentId, String courseId) throws Throwable {
+		assertEquals(c1.getRespTeacher(), system.getTeacherMap().get(teacherSerial));
+		assertEquals(c1.getTA(),system.getStudentMap().get(studentId));
+		assertEquals(c1.getPrerequisite(), system.getCourseMap().get(courseId));
+	}
+
 }
