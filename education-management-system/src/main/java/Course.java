@@ -79,7 +79,7 @@ public class Course {
 	}
 
 	public void setTA(Student tA) {
-		TA = tA;
+		this.TA = tA;
 	}
 
 	public Course getPrerequisite() {

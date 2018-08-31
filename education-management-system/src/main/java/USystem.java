@@ -95,6 +95,7 @@ public class USystem {
 	public void register(Course c1) {
 		courseMap.put(c1.courseId, c1);
 	}
+	
 	public Map<String, Course> getCourseMap() {
 		return courseMap;
 	}
