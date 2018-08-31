@@ -3,6 +3,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import Models.Course;
+import Models.Student;
+import Models.Teacher;
+import controller.USystem;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

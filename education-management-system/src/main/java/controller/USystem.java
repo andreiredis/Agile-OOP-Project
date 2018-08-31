@@ -1,4 +1,10 @@
+package controller;
+
 import java.util.*;
+
+import Models.Course;
+import Models.Student;
+import Models.Teacher;
 /**
  * <p> The university system records an index of the actors relevant 
  * for a university and the interactions between them.

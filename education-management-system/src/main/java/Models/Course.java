@@ -1,4 +1,4 @@
-
+package Models;
 /**
  * A university course
  * @author andreiredis
@@ -6,7 +6,7 @@
  */
 public class Course {
 	protected String title;
-	protected String courseId;
+	public String courseId;
 	protected String type;
 	protected String descriptionFile;
 	protected int ECTS;

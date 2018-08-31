@@ -1,3 +1,4 @@
+package Models;
 /**
  * Is a type of member that has an administrative role in the managing of Course.
  * @author andreiredis

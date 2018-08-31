@@ -1,3 +1,4 @@
+package Models;
 /**
  * Is a type of Member that participates in courses at the university.
  * @author andreiredis

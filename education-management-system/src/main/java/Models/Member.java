@@ -1,3 +1,4 @@
+package Models;
 /**
  * The abstract class is a template for all Person entities that are relevant in an University. 
  * It characterizes people with the details relevant for the university.
