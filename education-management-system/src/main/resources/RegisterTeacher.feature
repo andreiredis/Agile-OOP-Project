@@ -17,11 +17,13 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: SignUp Student
+Feature: Register teachers in University
 
   @tag1
-  Scenario Outline: Succesful sign up
-    Given Student
-    When SignUp
-    Then I validate the outcomes
-    And create
+  Scenario: Succesful registration
+  Given teacher with name "Ana" and surname "Ipatescu" and day "22" and month "02" and year "1990"
+  And teacher has level "Associate"
+  And teacher false registered in the university system
+  When teacher registration
+  And teacher has serial number 1
+  And teacher has email "anip@dtu.dk"
