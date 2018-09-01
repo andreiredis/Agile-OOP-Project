@@ -99,13 +99,13 @@ public class Course {
 		return studentList.contains(s);
 	}
 
-	public String enroll(Student student) {
+	/*public String enroll(Student student) {
 		if (system.getCourseMap().contains(student)) {
 			return "student is enrolled";
 		} else {
 			return "student is not enrolled";
 		}
+	*/
 		
-	}
 	
 }

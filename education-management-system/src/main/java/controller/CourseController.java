@@ -36,7 +36,7 @@ public class CourseController {
 		
 		////// Enroll student in course if it has prerequisite
 		
-		if (c2.enroll(s) == "student is enrolled") {System.out.println("Enrollment success");} else {System.out.println("Enrollment not successful");}
+		//		if (c2.enroll(s) == "student is enrolled") {System.out.println("Enrollment success");} else {System.out.println("Enrollment not successful");}
 		
 	}
 
