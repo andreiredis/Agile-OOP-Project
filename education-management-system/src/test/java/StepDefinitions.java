@@ -6,7 +6,7 @@ import java.util.List;
 import Models.Course;
 import Models.Student;
 import Models.Teacher;
-import controller.USystem;
+import Models.USystem;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

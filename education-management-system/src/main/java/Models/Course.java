@@ -1,4 +1,7 @@
 package Models;
+
+import java.util.ArrayList;
+
 /**
  * A university course
  * @author andreiredis
@@ -13,6 +16,7 @@ public class Course {
 	protected Teacher respTeacher;
 	protected Student TA;
 	protected Course prerequisite;
+	public ArrayList<Student> studentList;
 	
 	public Course() {
 	}
@@ -22,6 +26,8 @@ public class Course {
 		this.courseId = courseId;
 		this.type = type;
 		this.ECTS = ECTS;
+		
+		studentList = new ArrayList();
 	}
 
 	public String getTitle() {

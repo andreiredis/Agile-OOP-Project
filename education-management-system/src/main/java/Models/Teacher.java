@@ -5,6 +5,12 @@ package Models;
  *
  */
 public class Teacher extends Member {
+	@Override
+	public String toString() {
+		return "Teacher [level=" + level + ", serial=" + serial + ", name=" + name + ", surname=" + surname + ", day="
+				+ day + ", month=" + month + ", year=" + year + ", email=" + email + "]";
+	}
+
 	private String level;
 	private int serial;
 	

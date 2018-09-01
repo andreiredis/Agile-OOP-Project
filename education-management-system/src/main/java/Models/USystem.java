@@ -1,10 +1,6 @@
-package controller;
+package Models;
 
 import java.util.*;
-
-import Models.Course;
-import Models.Student;
-import Models.Teacher;
 /**
  * <p> The university system records an index of the actors relevant 
  * for a university and the interactions between them.
@@ -48,7 +44,7 @@ public class USystem {
 	 * @param teacher
 	 * @return True if belongs else false.
 	 */
-	public Object isTeacherRegistered(Teacher teacher) {
+	public boolean isTeacherRegistered(Teacher teacher) {
 		return teacherMap.containsValue(teacher);
 	}
 	/**

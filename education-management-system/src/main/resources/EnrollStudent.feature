@@ -17,17 +17,19 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Register students in University
+Feature: Enrol students into courses
 
   @tag1
-  Scenario: Succesful registration
-  Given student with name "Ion" and surname "Popescu" and day "22" and month "02" and year "1990" 
-  And student false registered in the university system
-  When student registration 
-  Then student has student id 160000
-  And student has email "s160000@student.dtu.dk"
-  
-  		
-  
-    
-   
+  Scenario: Succesful Enrollment
+    Given student "Andrei" is false enrolled in course "M-101"
+    And student "Andrei" is true enrolled in course "PY-101"
+    When enroll in "M-101"
+    Then student "Andrei" is true enrolled in course "M-101"
+    And display "student is enrolled"
+
+  Scenario: Doesn't have prerequisites
+  		Given student "Andrei" is false enrolled in course "M-101"
+    And student "Andrei" is false enrolled in course "PY-101"
+    When enroll in "M-101"
+    Then student "Andrei" is false enrolled in course "M-101"
+    And display "student is enrolled"

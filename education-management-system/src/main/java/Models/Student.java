@@ -7,6 +7,11 @@ package Models;
 public class Student extends Member {
 	private int studentId;
 	
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", name=" + name + ", surname=" + surname + ", day=" + day
+				+ ", month=" + month + ", year=" + year + ", email=" + email + "]";
+	}
 	public Student() {
 		super();
 	}
