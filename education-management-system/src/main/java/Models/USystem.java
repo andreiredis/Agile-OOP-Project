@@ -21,7 +21,7 @@ public class USystem {
 	private int lastTeacherSerial = 1;
 	private Map<Integer, Student> studentMap;
 	private Map<Integer, Teacher> teacherMap;
-	private Map<String, Course> courseMap;
+	public static Map<String, Course> courseMap;
 	/**
 	 * Constructor for University system. Initializes the data 
 	 * <ui>
@@ -98,7 +98,7 @@ public class USystem {
 		courseMap.put(c1.courseId, c1);
 	}
 	
-	public Map<String, Course> getCourseMap() {
+	public static Map<String, Course> getCourseMap() {
 		return courseMap;
 	}
 	public Map<Integer, Student> getStudentMap() {

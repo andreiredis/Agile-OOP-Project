@@ -21,15 +21,15 @@ Feature: Enrol students into courses
 
   @tag1
   Scenario: Succesful Enrollment
-    Given student "Andrei" is false enrolled in course "M-101"
-    And student "Andrei" is true enrolled in course "PY-101"
-    When enroll in "M-101"
-    Then student "Andrei" is true enrolled in course "M-101"
+    Given student with id 160000 is false enrolled in course "M-101"
+    And student 160000 is true enrolled in course "PY-101"
+    When enroll 160000 in "M-101"
+    Then student 160000 is true enrolled in course "M-101"
     And display "student is enrolled"
 
   Scenario: Doesn't have prerequisites
-  		Given student "Andrei" is false enrolled in course "M-101"
-    And student "Andrei" is false enrolled in course "PY-101"
-    When enroll in "M-101"
-    Then student "Andrei" is false enrolled in course "M-101"
-    And display "student is enrolled"
+  		Given student 160000 is false enrolled in course "M-101"
+    And student 160000 is false enrolled in course "PY-101"
+    When enroll 160000 in "M-101"
+    Then student 160000 is false enrolled in course "M-101"
+    And display "student is not enrolled"

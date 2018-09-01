@@ -31,5 +31,6 @@ public class StudentController {
 		// Check if a student is registered into university (uncomment the method and insert student)
 		if (system.isStudentRegistered(s)) {System.out.println(s+"is registered");} else {System.out.println(s+"is not registered");}
 		
+		
 	}
 }

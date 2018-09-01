@@ -18,6 +18,7 @@ public class StepDefinitions {
 	Teacher t1 = new Teacher("Name", "Surname", "A level", "1", "1", "2000");
 	Course c1 = new Course("Title", "courseId", "BSc/Msc/Phd", 5);
 	USystem system = new USystem();
+	private String message;
 	
 	/////////// RegisterStudent.feature //////////
 	@Given("^student with name \"([^\"]*)\" and surname \"([^\"]*)\" and day \"([^\"]*)\" and month \"([^\"]*)\" and year \"([^\"]*)\"$")
@@ -122,5 +123,34 @@ public class StepDefinitions {
 		assertEquals(c1.getTA(),system.getStudentMap().get(studentId));
 		assertEquals(c1.getPrerequisite(), system.getCourseMap().get(courseId));
 	}
+	
+	/////////// Enroll Student feature
+	
+	@Given("^student with id (\\d+) is false enrolled in course \"([^\"]*)\"$")
+	public void student_with_id_is_false_enrolled_in_course(int studentId, String courseId) throws Throwable {
+	    assertFalse(system.getCourseMap().get(courseId).isEnrolled(system.getStudentMap().get(studentId)));
+	}
+
+	@Given("^student (\\d+) is true enrolled in course \"([^\"]*)\"$")
+	public void student_is_true_enrolled_in_course(int studentId, String courseId) throws Throwable {
+		assertTrue(system.getCourseMap().get(courseId).isEnrolled(system.getStudentMap().get(studentId)));
+	}
+
+	@When("^enroll (\\d+) in \"([^\"]*)\"$")
+	public void enroll_in(int studentId, String courseId)  {
+		message = system.getCourseMap().get(courseId).enroll(system.getStudentMap().get(studentId));
+	}
+
+	@Then("^display \"([^\"]*)\"$")
+	public void display(String test) {
+	    assertEquals(message, test);
+	}
+
+	@Given("^student (\\d+) is false enrolled in course \"([^\"]*)\"$")
+	public void student_is_false_enrolled_in_course(int arg1, String arg2) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
 
 }

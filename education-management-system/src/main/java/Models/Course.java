@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+import Models.USystem;
 
 /**
  * A university course
@@ -15,7 +16,7 @@ public class Course {
 	protected int ECTS;
 	protected Teacher respTeacher;
 	protected Student TA;
-	protected Course prerequisite;
+	protected Course prerequisiteCourseId;
 	public ArrayList<Student> studentList;
 	
 	public Course() {
@@ -85,13 +86,26 @@ public class Course {
 	public void setTA(Student tA) {
 		this.TA = tA;
 	}
-
-	public Course getPrerequisite() {
-		return prerequisite;
+	
+	public Course getPrerequisiteCourseId() {
+		return prerequisiteCourseId;
 	}
 
-	public void setPrerequisite(Course prerequisite) {
-		this.prerequisite = prerequisite;
+	public void setPrerequisiteCourseId(Course prerequisiteCourseId) {
+		this.prerequisiteCourseId = prerequisiteCourseId;
+	}
+
+	public boolean isEnrolled (Student s) {
+		return studentList.contains(s);
+	}
+
+	public String enroll(Student student) {
+		if (system.getCourseMap().contains(student)) {
+			return "student is enrolled";
+		} else {
+			return "student is not enrolled";
+		}
+		
 	}
 	
 }
