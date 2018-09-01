@@ -32,7 +32,7 @@ public class CourseController {
 		system.register(c);
 		
 		// Add prerequisite course c1 to course c:
-		c.setPrerequisiteCourseId(c1);
+		c.setPrerequisiteCourse(system, c1.getCourseId());
 		
 		////// Enroll student in course if it has prerequisite
 		
