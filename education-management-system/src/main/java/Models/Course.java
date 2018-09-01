@@ -16,7 +16,7 @@ public class Course {
 	protected int ECTS;
 	protected Teacher respTeacher;
 	protected Student TA;
-	protected Course prerequisiteCourseId;
+	protected Course prerequisiteCourse;
 	public ArrayList<Student> studentList;
 	
 	public Course() {
@@ -87,25 +87,22 @@ public class Course {
 		this.TA = tA;
 	}
 	
-	public Course getPrerequisiteCourseId() {
-		return prerequisiteCourseId;
+	public Course getPrerequisiteCourse() {
+		return prerequisiteCourse;
 	}
 
-	public void setPrerequisiteCourseId(Course prerequisiteCourseId) {
-		this.prerequisiteCourseId = prerequisiteCourseId;
+	public void setPrerequisiteCourse(USystem system, String prerequisiteCourseId) {
+		this.prerequisiteCourse = system.getCourseMap().get(prerequisiteCourseId);
 	}
 
 	public boolean isEnrolled (Student s) {
 		return studentList.contains(s);
 	}
 
-	/*public String enroll(Student student) {
-		if (system.getCourseMap().contains(student)) {
-			return "student is enrolled";
-		} else {
-			return "student is not enrolled";
-		}
-	*/
+	public String enroll(Student student) {
+		studentList.add(student);
+		return "student is enrolled";
+	}
 		
 	
 }

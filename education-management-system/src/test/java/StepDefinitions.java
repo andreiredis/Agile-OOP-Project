@@ -101,7 +101,7 @@ public class StepDefinitions {
 	public void a_responsible_teacher_with_id_and_a_teaching_assistant_with_id_and_prerequisite_course_with_id(int teacherSerial, int studentId, String courseId) {
 		c1.setRespTeacher(system.getTeacherMap().get(teacherSerial));
 		c1.setTA(system.getStudentMap().get(studentId));
-	    c1.setPrerequisite(system.getCourseMap().get(courseId));
+	    c1.setPrerequisiteCourse(system, courseId); 
 	}
 	
 	@When("^course registration$")
@@ -121,7 +121,7 @@ public class StepDefinitions {
 	public void has_a_responsible_teacher_with_id_and_a_teaching_assistant_with_id_and_prerequisite_course_with_id(int teacherSerial, int studentId, String courseId) throws Throwable {
 		assertEquals(c1.getRespTeacher(), system.getTeacherMap().get(teacherSerial));
 		assertEquals(c1.getTA(),system.getStudentMap().get(studentId));
-		assertEquals(c1.getPrerequisite(), system.getCourseMap().get(courseId));
+		assertEquals(c1.getPrerequisiteCourse(), system.getCourseMap().get(courseId));
 	}
 	
 	/////////// Enroll Student feature
